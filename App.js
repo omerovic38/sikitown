@@ -1,30 +1,31 @@
-import React from 'react';
-import { createAppContainer, createStackNavigator } from 'react-navigation';
-import { Image } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
 
-import Welcome from '../screens/Welcome';
-import Browse from '../screens/Browse';
-import Explore from '../screens/Explore';
-import Settings from '../screens/Settings';
-import Login from '../screens/Login';
+import { AppLoading, Asset } from 'expo';
 
-import { theme } from '../constants'
+import Navigation from './navigation';
+import * as constants from './constants';
+import { Block } from './components';
 
-const screens = createStackNavigator({
-  Welcome,
-  Browse,
-  Explore,
-  Settings,
-  Login
-}, {
-  defaultNavigationOptions: {
-    headerStyle: {},
-    headerBackImage: <Image />,
-    headerBackTitle: null,
-    headerLeftContainerStyle: {},
-    headerRightContainerStyle: {},
-  }
+
+//import all used images
+// const images = [
+//   require('./assets/images/'),
+//   require('./assets/images/'),
+  
+// ]
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Navigation />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    backgroundColor: '#fff',
+  },
 });
-
-
-export default createAppContainer(screens);
